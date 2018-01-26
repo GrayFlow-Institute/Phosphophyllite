@@ -1,8 +1,9 @@
 'use strict';
-var should = require('should');
+const should = require('should');
 
-describe('Phos', done => {
+describe('Phosphophyllite', done => {
     require('./Scripts/Cli');
+    require('./Scripts/Logger');
     require('./Scripts/Phos');
     require('./Scripts/EnvLoader');
     require('./Scripts/DocFinder');
