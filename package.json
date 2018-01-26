@@ -1,11 +1,10 @@
 {
-  "name": "Phosphophyllite",
+  "name": "phosphophyllite",
   "version": "0.0.1",
-  "description":"A sophisticated static blog system.",
+  "description": "A sophisticated static blog system.",
   "bin": {
     "phos": "./bin/phos"
   },
-
   "dependencies": {},
   "devDependencies": {
     "mocha": "^5.0.0",
@@ -20,13 +19,14 @@
   },
   "license": "LicenseRef-LICENSE",
   "repository": "https://github.com/GrayFlow-Institute/Phosphophyllite",
-  "homepage": "",
+  "homepage": "http://phos.thoxvi.com",
   "keywords": [
-    "data flow framework",
-    "website",
+    "data-flow",
+    "simple",
+    "expand",
+    "fast",
+    "framework",
     "blog"
   ],
-  "author": "Thoxvi <A@Thoxvi.com> (http://Blog.Thoxvi.com)",
-
-
+  "author": "Thoxvi <A@Thoxvi.com> (http://Blog.Thoxvi.com)"
 }
