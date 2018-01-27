@@ -4,6 +4,8 @@ const Env = require('../../../lib/Phos/Env');
 const Plugin = require('../../../lib/Phos/Plugin');
 const Task = require('../../../lib/Phos/Task');
 const Phos = require('../../../lib/Phos');
+const DumbLogger = require('./DumbLogger');
+
 
 class StartPlugin extends Plugin {
     constructor() {
@@ -17,16 +19,15 @@ class StartPlugin extends Plugin {
 
     run() {
         this.env.addHistory(123, "RUN");
+        this.outdata = "OUT";
+        return true;
     }
 
     type() {
         return 0;
     }
-
-    out() {
-        return "OUT";
-    }
 }
+
 
 describe('Phos', () => {
     it('Env', () => {
@@ -54,8 +55,9 @@ describe('Phos', () => {
 
     it('Task', () => {
         let task = new Task("task_name");
+        task.log = new DumbLogger();
         task.init([new StartPlugin()]);
-        task.run();
+        task.run().should.be.true();
 
         let env = task.env;
         env.getHistory(321).should.be.equal('INIT');
@@ -66,10 +68,12 @@ describe('Phos', () => {
 
     it('Phos', () => {
         let phos = new Phos();
-        let task = new Task("task_name");
+        phos.log = new DumbLogger();
+        let task = new Task("phos_task_name");
+        task.log = new DumbLogger();
         task.init([new StartPlugin()]);
         phos.tasks = [task];
-        phos.run();
+        phos.run().should.be.true();
 
         let env = task.env;
         env.getHistory(321).should.be.equal('INIT');
