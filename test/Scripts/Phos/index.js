@@ -38,7 +38,9 @@ describe('Phos', () => {
     });
 
     it('Plugin', () => {
-        let plugin = new Plugin(new Env());
+        let plugin = new Plugin();
+        let env = new Env();
+        plugin.init(env);
         try {
             let p = new Plugin(123);
         } catch (e) {
