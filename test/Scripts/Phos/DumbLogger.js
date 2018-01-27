@@ -4,7 +4,7 @@ const Logger = require('../../../lib/Phos/Logger');
 
 class DumbLogger extends Logger {
     constructor() {
-        super();
+        super('DumbLogger');
     }
 
     info(msg) {

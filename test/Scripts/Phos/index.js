@@ -19,7 +19,7 @@ class StartPlugin extends Plugin {
 
     run() {
         this.env.addHistory(123, "RUN");
-        this.outdata = "OUT";
+        this.outData = "OUT";
         return true;
     }
 
