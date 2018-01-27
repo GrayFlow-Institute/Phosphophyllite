@@ -48,7 +48,9 @@ describe('DocSplitter', () => {
             "let error = 0;",
             "'''",
             "",
-            "# Title/home/yanyuhl/Git/Phosphophyllite/test/TestMarkDown/Test1/Test1.md/home/yanyuhl/Git/Phosphophyllite/test/TestMarkDown/Test5.md"
+            "# Title" +
+            path.resolve("./test/TestMarkDown/Test1/Test1.md") +
+            path.resolve("./test/TestMarkDown/Test5.md")
         ];
         data.join('').should.be.equal(shouldData.join('\n'));
     });
