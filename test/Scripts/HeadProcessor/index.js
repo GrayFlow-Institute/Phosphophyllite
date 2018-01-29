@@ -19,7 +19,7 @@ describe('HeadProcessor', () => {
             "    'date':'2018-01-28T22:06:45.000Z',\n" +
             "    'tags':['test','phos']\n" +
             "}";
-        let data = [json, '\n#H1', 'TestPath'];
+        let data = [json, '\n# H1', 'TestPath'];
         env.addHistory(Phos.DOC_SPLITTER, {'out': [data]});
 
         hp.init(env);
