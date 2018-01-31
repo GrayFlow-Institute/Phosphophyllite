@@ -14,10 +14,21 @@ describe('CttProcessor', () => {
 
 
     it('Init', () => {
-        let content = ''; //TODO
+        let content1 = '![TestCase](./test/TestImage/1.png)';
+        let content2 = '![TestCase](./test/TestImage/2.png)';
+        let content3 = '![TestCase](./test/TestImage/same1.png)';
+        let content4 = '![TestCase](http://blog.thoxvi.com/text.jpg)';
 
-        let data = [{'Title': 'title'}, content, 'TestPath'];
-        env.addHistory(Phos.HEAD_PROCESSOR, {'out': [data]});
+        let data = [
+            [{'Title': 'title'}, content1, 'TestPath'],
+            [{'Title': 'title'}, content2, 'TestPath'],
+            [{'Title': 'title'}, content3, 'TestPath'],
+            [{'Title': 'title'}, content4, 'TestPath'],
+        ];
+
+
+        env.addHistory(Phos.HEAD_PROCESSOR, {'out': data});
+        env.addHistory('imageFolder', './test/TestImage/Hash_Image');
 
         cp.init(env);
         cp.before.should.be.equal(Phos.HEAD_PROCESSOR)
@@ -35,7 +46,11 @@ describe('CttProcessor', () => {
             tuple.length.should.be.equal(3);
             return tuple[1];
         });
-        data[0].should.be.equal('');
+
+        data[0].should.be.equal('<p><img src="./test/TestImage/Hash_Image/6af286765f57fe228750b523b749446cef33dab3.png" alt="TestCase" /></p>');
+        data[1].should.be.equal('<p><img src="./test/TestImage/Hash_Image/f82469f4381e71c04d460ef103943a7d2c4b5375.png" alt="TestCase" /></p>');
+        data[2].should.be.equal('<p><img src="./test/TestImage/Hash_Image/6af286765f57fe228750b523b749446cef33dab3.png" alt="TestCase" /></p>');
+        data[3].should.be.equal('<p><img src="http://blog.thoxvi.com/text.jpg" alt="TestCase" /></p>');
     });
 
 });
