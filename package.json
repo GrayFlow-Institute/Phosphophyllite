@@ -6,7 +6,7 @@
     "phos": "./bin/phos"
   },
   "dependencies": {
-    "js-yaml": "^3.10.0",
+    "js-yaml": "^3.13.1",
     "showdown": "^1.8.6"
   },
   "devDependencies": {
